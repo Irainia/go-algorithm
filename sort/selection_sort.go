@@ -11,9 +11,7 @@ func SelectionSort(sequence []int) {
 			}
 		}
 		if compareIndex != i {
-			temp := sequence[i]
-			sequence[i] = sequence[compareIndex]
-			sequence[compareIndex] = temp
+			sequence[i], sequence[compareIndex] = sequence[compareIndex], sequence[i]
 		}
 	}
 }

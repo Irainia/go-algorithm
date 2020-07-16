@@ -7,10 +7,7 @@ func BubbleSort(sequence []int) {
 		var isSwapped bool
 		for i := 0; i < len(sequence)-1; i++ {
 			if sequence[i] > sequence[i+1] {
-				temp := sequence[i]
-				sequence[i] = sequence[i+1]
-				sequence[i+1] = temp
-
+				sequence[i], sequence[i+1] = sequence[i+1], sequence[i]
 				isSwapped = true
 			}
 		}

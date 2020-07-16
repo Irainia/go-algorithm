@@ -4,12 +4,16 @@ package sort
 // using selection sort algorithm
 func SelectionSort(sequence []int) {
 	for i := 0; i < len(sequence); i++ {
+		compareIndex := i
 		for j := i + 1; j < len(sequence); j++ {
-			if sequence[i] > sequence[j] {
-				temp := sequence[i]
-				sequence[i] = sequence[j]
-				sequence[j] = temp
+			if sequence[compareIndex] > sequence[j] {
+				compareIndex = j
 			}
+		}
+		if compareIndex != i {
+			temp := sequence[i]
+			sequence[i] = sequence[compareIndex]
+			sequence[compareIndex] = temp
 		}
 	}
 }

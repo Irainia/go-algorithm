@@ -20,6 +20,12 @@ func Main() {
 	fmt.Println("=== Selection Sort ===")
 	playMiniSelectionSort(sequence)
 	playLargeSelectionSort(maxSequenceLength)
+
+	fmt.Println()
+
+	fmt.Println("=== Insertion Sort ===")
+	playMiniInsertionSort(sequence)
+	playLargeInsertionSort(maxSequenceLength)
 }
 
 func playMiniBubbleSort(sequence []int) {
@@ -57,6 +63,26 @@ func playLargeSelectionSort(maxSequenceLength uint) {
 
 	startTime := time.Now()
 	SelectionSort(sequence)
+	endTime := time.Now()
+
+	fmt.Printf("sort on %d items takes: %v\n", maxSequenceLength, endTime.Sub(startTime))
+}
+
+func playMiniInsertionSort(sequence []int) {
+	fmt.Printf("before: %+v\n", sequence)
+	InsertionSort(sequence)
+	fmt.Printf("after: %+v\n", sequence)
+}
+
+func playLargeInsertionSort(maxSequenceLength uint) {
+	sequence := make([]int, maxSequenceLength)
+
+	for i := uint(0); i < maxSequenceLength; i++ {
+		sequence[i] = rand.Int()
+	}
+
+	startTime := time.Now()
+	InsertionSort(sequence)
 	endTime := time.Now()
 
 	fmt.Printf("sort on %d items takes: %v\n", maxSequenceLength, endTime.Sub(startTime))

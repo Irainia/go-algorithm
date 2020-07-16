@@ -8,82 +8,68 @@ import (
 
 // Main plays all sorting algorithms
 func Main() {
-	sequence := []int{3, 5, 1, 7, 7, 9, 10, 3}
-	maxSequenceLength := uint(60000)
+	maxSequenceLength := 60000
+	smallSequence := []int{3, 5, 1, 7, 7, 9, 10, 3}
+	largeSequence := make([]int, maxSequenceLength)
+	for i := 0; i < maxSequenceLength; i++ {
+		largeSequence[i] = rand.Int()
+	}
 
 	fmt.Println("=== Bubble Sort ===")
-	playMiniBubbleSort(sequence)
-	playLargeBubbleSort(maxSequenceLength)
+	playSmallBubbleSort(smallSequence)
+	playLargeBubbleSort(largeSequence)
 
 	fmt.Println()
 
 	fmt.Println("=== Selection Sort ===")
-	playMiniSelectionSort(sequence)
-	playLargeSelectionSort(maxSequenceLength)
+	playSmallSelectionSort(smallSequence)
+	playLargeSelectionSort(largeSequence)
 
 	fmt.Println()
 
 	fmt.Println("=== Insertion Sort ===")
-	playMiniInsertionSort(sequence)
-	playLargeInsertionSort(maxSequenceLength)
+	playSmallInsertionSort(smallSequence)
+	playLargeInsertionSort(largeSequence)
 }
 
-func playMiniBubbleSort(sequence []int) {
+func playSmallBubbleSort(sequence []int) {
 	fmt.Printf("before: %+v\n", sequence)
 	BubbleSort(sequence)
 	fmt.Printf("after: %+v\n", sequence)
 }
 
-func playLargeBubbleSort(maxSequenceLength uint) {
-	sequence := make([]int, maxSequenceLength)
-
-	for i := uint(0); i < maxSequenceLength; i++ {
-		sequence[i] = rand.Int()
-	}
-
+func playLargeBubbleSort(sequence []int) {
 	startTime := time.Now()
 	BubbleSort(sequence)
 	endTime := time.Now()
 
-	fmt.Printf("sort on %d items takes: %v\n", maxSequenceLength, endTime.Sub(startTime))
+	fmt.Printf("sort on %d items takes: %v\n", len(sequence), endTime.Sub(startTime))
 }
 
-func playMiniSelectionSort(sequence []int) {
+func playSmallSelectionSort(sequence []int) {
 	fmt.Printf("before: %+v\n", sequence)
 	SelectionSort(sequence)
 	fmt.Printf("after: %+v\n", sequence)
 }
 
-func playLargeSelectionSort(maxSequenceLength uint) {
-	sequence := make([]int, maxSequenceLength)
-
-	for i := uint(0); i < maxSequenceLength; i++ {
-		sequence[i] = rand.Int()
-	}
-
+func playLargeSelectionSort(sequence []int) {
 	startTime := time.Now()
 	SelectionSort(sequence)
 	endTime := time.Now()
 
-	fmt.Printf("sort on %d items takes: %v\n", maxSequenceLength, endTime.Sub(startTime))
+	fmt.Printf("sort on %d items takes: %v\n", len(sequence), endTime.Sub(startTime))
 }
 
-func playMiniInsertionSort(sequence []int) {
+func playSmallInsertionSort(sequence []int) {
 	fmt.Printf("before: %+v\n", sequence)
 	InsertionSort(sequence)
 	fmt.Printf("after: %+v\n", sequence)
 }
 
-func playLargeInsertionSort(maxSequenceLength uint) {
-	sequence := make([]int, maxSequenceLength)
-
-	for i := uint(0); i < maxSequenceLength; i++ {
-		sequence[i] = rand.Int()
-	}
-
+func playLargeInsertionSort(sequence []int) {
 	startTime := time.Now()
 	InsertionSort(sequence)
 	endTime := time.Now()
 
-	fmt.Printf("sort on %d items takes: %v\n", maxSequenceLength, endTime.Sub(startTime))
+	fmt.Printf("sort on %d items takes: %v\n", len(sequence), endTime.Sub(startTime))
 }

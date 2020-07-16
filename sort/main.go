@@ -6,30 +6,53 @@ import (
 	"time"
 )
 
+const maxSequenceLength = 100000
+
+var largeSequence []int
+
+func init() {
+	getSmallSequence()
+	getLargeSequence()
+}
+
 // Main plays all sorting algorithms
 func Main() {
-	maxSequenceLength := 60000
-	smallSequence := []int{3, 5, 1, 7, 7, 9, 10, 3}
-	largeSequence := make([]int, maxSequenceLength)
-	for i := 0; i < maxSequenceLength; i++ {
-		largeSequence[i] = rand.Int()
-	}
-
 	fmt.Println("=== Bubble Sort ===")
-	playSmallSort(smallSequence, BubbleSort)
-	playLargeSort(largeSequence, BubbleSort)
+	playSmallSort(getSmallSequence(), BubbleSort)
+	playLargeSort(getLargeSequence(), BubbleSort)
 
 	fmt.Println()
 
 	fmt.Println("=== Selection Sort ===")
-	playSmallSort(smallSequence, SelectionSort)
-	playLargeSort(largeSequence, SelectionSort)
+	playSmallSort(getSmallSequence(), SelectionSort)
+	playLargeSort(getLargeSequence(), SelectionSort)
 
 	fmt.Println()
 
 	fmt.Println("=== Insertion Sort ===")
-	playSmallSort(smallSequence, InsertionSort)
-	playLargeSort(largeSequence, InsertionSort)
+	playSmallSort(getSmallSequence(), InsertionSort)
+	playLargeSort(getLargeSequence(), InsertionSort)
+
+	fmt.Println()
+
+	fmt.Println("=== Merge Sort ===")
+	playSmallSort(getSmallSequence(), MergeSort)
+	playLargeSort(getLargeSequence(), MergeSort)
+}
+
+func getSmallSequence() []int {
+	return []int{3, 5, 1, 7, 8, 7, 9, 10, 3}
+}
+
+func getLargeSequence() []int {
+	largeSeq := make([]int, maxSequenceLength)
+	if largeSequence == nil {
+		for i := 0; i < maxSequenceLength; i++ {
+			largeSeq[i] = rand.Int()
+		}
+	}
+	copy(largeSeq, largeSequence)
+	return largeSeq
 }
 
 func playSmallSort(sequence []int, sortAlgorithm func([]int)) {

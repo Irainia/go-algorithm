@@ -33,4 +33,17 @@ func TestNewAllocatedLinkedList(t *testing.T) {
 			t.Errorf("expected: %d -- actual: %d", expectedLength, actualLength)
 		}
 	})
+
+	t.Run("length should be zero if the sequence to be allocated is nil", func(t *testing.T) {
+		var sequence []int
+		linkedList := data.NewAllocatedLinkedList(sequence)
+
+		expectedLength := 0
+
+		actualLength := linkedList.GetLength()
+
+		if expectedLength != actualLength {
+			t.Errorf("expected: %d -- actual: %d", expectedLength, actualLength)
+		}
+	})
 }

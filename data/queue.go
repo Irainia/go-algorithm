@@ -6,6 +6,8 @@ const EmptyQueueErrMessage = "queue is empty"
 
 // Queue is type to process queue manner
 type Queue struct {
+	length int
+
 	head *LinkedList
 	tail *LinkedList
 }
@@ -29,6 +31,7 @@ func (q *Queue) Enqueue(value int) {
 		q.tail.NextLinkedList = linkedList
 	}
 	q.tail = linkedList
+	q.length++
 }
 
 // Dequeue removes and return the first value from queue
@@ -41,10 +44,11 @@ func (q *Queue) Dequeue() int {
 	if q.head == nil {
 		q.tail = nil
 	}
+	q.length--
 	return output
 }
 
 // Length return length of the queue
 func (q *Queue) Length() int {
-	return 0
+	return q.length
 }

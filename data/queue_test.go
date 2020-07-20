@@ -118,5 +118,21 @@ func TestQueue(t *testing.T) {
 				t.Errorf("expected: %d -- actual: %d", expectedLength, actualLength)
 			}
 		})
+
+		t.Run("should return the number of values inside the queue", func(t *testing.T) {
+			queue := data.Queue{}
+			queue.Enqueue(1)
+			queue.Enqueue(7)
+			queue.Enqueue(4)
+			queue.Dequeue()
+
+			expectedLength := 2
+
+			actualLength := queue.Length()
+
+			if actualLength != expectedLength {
+				t.Errorf("expected: %d -- actual: %d", expectedLength, actualLength)
+			}
+		})
 	})
 }

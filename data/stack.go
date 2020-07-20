@@ -30,3 +30,8 @@ func (s *Stack) Push(value int) {
 	}
 	s.top = linkedList
 }
+
+// Pop returns last value and remove it from stack
+func (s *Stack) Pop() int {
+	panic(EmptyStackErrMessage)
+}

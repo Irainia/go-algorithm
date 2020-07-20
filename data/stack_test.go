@@ -56,4 +56,24 @@ func TestStack(t *testing.T) {
 			}
 		})
 	})
+
+	t.Run("Pop", func(t *testing.T) {
+		t.Run("should panic if stack is empty", func(t *testing.T) {
+			stack := data.Stack{}
+
+			expectedMessage := data.EmptyStackErrMessage
+
+			defer func() {
+				if r := recover(); r != nil {
+					actualMessage := r.(string)
+
+					if actualMessage != expectedMessage {
+						t.Errorf("expected: %s -- actual: %s", expectedMessage, actualMessage)
+					}
+				}
+			}()
+			stack.Pop()
+			t.Error("expected: panic -- actual: not panic")
+		})
+	})
 }

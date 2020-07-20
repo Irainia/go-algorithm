@@ -25,6 +25,23 @@ func TestQueue(t *testing.T) {
 			queue.Peek()
 			t.Error("expected: panic -- actual: not panic")
 		})
+
+		t.Run("should return the last value after dequeue until before last", func(t *testing.T) {
+			queue := data.Queue{}
+			queue.Enqueue(1)
+			queue.Enqueue(7)
+			queue.Enqueue(4)
+
+			expectedValue := 4
+
+			queue.Dequeue()
+			queue.Dequeue()
+			actualValue := queue.Peek()
+
+			if actualValue != expectedValue {
+				t.Errorf("expected: %d -- actual: %d", expectedValue, actualValue)
+			}
+		})
 	})
 
 	t.Run("Enqueue", func(t *testing.T) {

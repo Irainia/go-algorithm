@@ -23,7 +23,11 @@ func (q *Queue) Enqueue(value int) {
 	linkedList := &LinkedList{
 		Value: value,
 	}
-	q.head = linkedList
+	if q.head == nil {
+		q.head = linkedList
+	} else {
+		q.tail.NextLinkedList = linkedList
+	}
 	q.tail = linkedList
 }
 

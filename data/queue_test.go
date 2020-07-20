@@ -13,10 +13,9 @@ func TestQueue(t *testing.T) {
 
 			expectedMessage := data.EmptyQueueErrMessage
 
-			var actualMessage string
 			defer func() {
 				if r := recover(); r != nil {
-					actualMessage = r.(string)
+					actualMessage := r.(string)
 
 					if actualMessage != expectedMessage {
 						t.Errorf("expected: %s -- actual: %s", expectedMessage, actualMessage)
@@ -24,7 +23,6 @@ func TestQueue(t *testing.T) {
 				}
 			}()
 			queue.Peek()
-
 			t.Error("expected: panic -- actual: not panic")
 		})
 	})
@@ -51,10 +49,9 @@ func TestQueue(t *testing.T) {
 
 			expectedMessage := data.EmptyQueueErrMessage
 
-			var actualMessage string
 			defer func() {
 				if r := recover(); r != nil {
-					actualMessage = r.(string)
+					actualMessage := r.(string)
 
 					if actualMessage != expectedMessage {
 						t.Errorf("expected: %s -- actual: %s", expectedMessage, actualMessage)
@@ -62,7 +59,6 @@ func TestQueue(t *testing.T) {
 				}
 			}()
 			queue.Dequeue()
-
 			t.Error("expected: panic -- actual: not panic")
 		})
 
@@ -89,7 +85,6 @@ func TestQueue(t *testing.T) {
 				}
 			}()
 			queue.Peek()
-
 			t.Error("expected: panic -- actual: not panic")
 		})
 	})

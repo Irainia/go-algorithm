@@ -28,4 +28,20 @@ func TestQueue(t *testing.T) {
 			t.Error("expected: panic -- actual: not panic")
 		})
 	})
+
+	t.Run("Enqueue", func(t *testing.T) {
+		t.Run("should enqueue value and peek should return the value", func(t *testing.T) {
+			queue := data.Queue{}
+			value := 12
+
+			expectedValue := value
+
+			queue.Enqueue(value)
+			actualValue := queue.Peek()
+
+			if actualValue != expectedValue {
+				t.Errorf("expected: %d -- actual: %d", expectedValue, actualValue)
+			}
+		})
+	})
 }

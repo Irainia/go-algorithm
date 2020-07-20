@@ -12,3 +12,8 @@ type Stack struct {
 func (s *Stack) Peek() int {
 	panic(EmptyStackErrMessage)
 }
+
+// Length returns length of the stack
+func (s *Stack) Length() int {
+	return 0
+}

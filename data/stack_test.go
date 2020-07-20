@@ -26,4 +26,18 @@ func TestStack(t *testing.T) {
 			t.Error("expected: panic -- actual: not panic")
 		})
 	})
+
+	t.Run("Length", func(t *testing.T) {
+		t.Run("should return zero if stack is empty", func(t *testing.T) {
+			stack := data.Stack{}
+
+			expectedLength := 0
+
+			actualLength := stack.Length()
+
+			if actualLength != expectedLength {
+				t.Errorf("expected: %d -- actual: %d", expectedLength, actualLength)
+			}
+		})
+	})
 }

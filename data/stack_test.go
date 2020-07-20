@@ -40,4 +40,20 @@ func TestStack(t *testing.T) {
 			}
 		})
 	})
+
+	t.Run("Push", func(t *testing.T) {
+		t.Run("should add value and peek return the value", func(t *testing.T) {
+			value := 12
+			stack := data.Stack{}
+			stack.Push(value)
+
+			expectedValue := value
+
+			actualValue := stack.Peek()
+
+			if actualValue != expectedValue {
+				t.Errorf("expected: %d -- actual: %d", expectedValue, actualValue)
+			}
+		})
+	})
 }

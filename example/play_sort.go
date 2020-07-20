@@ -1,9 +1,11 @@
-package sort
+package example
 
 import (
 	"fmt"
 	"math/rand"
 	"time"
+
+	"github.com/Irainia/go-algorithm/sort"
 )
 
 const maxSequenceLength = 100000
@@ -15,29 +17,34 @@ func init() {
 	getLargeSequence()
 }
 
-// Main plays all sorting algorithms
-func Main() {
-	fmt.Println("=== Bubble Sort ===")
-	playSmallSort(getSmallSequence(), BubbleSort)
-	playLargeSort(getLargeSequence(), BubbleSort)
+// PlaySort plays all sorting algorithms
+func PlaySort() {
+	fmt.Println("\n=== PLAY SORT ===")
+
+	fmt.Println("... Bubble Sort ...")
+	playSmallSort(getSmallSequence(), sort.BubbleSort)
+	playLargeSort(getLargeSequence(), sort.BubbleSort)
 
 	fmt.Println()
 
-	fmt.Println("=== Selection Sort ===")
-	playSmallSort(getSmallSequence(), SelectionSort)
-	playLargeSort(getLargeSequence(), SelectionSort)
+	fmt.Println("... Selection Sort ...")
+	playSmallSort(getSmallSequence(), sort.SelectionSort)
+	playLargeSort(getLargeSequence(), sort.SelectionSort)
 
 	fmt.Println()
 
-	fmt.Println("=== Insertion Sort ===")
-	playSmallSort(getSmallSequence(), InsertionSort)
-	playLargeSort(getLargeSequence(), InsertionSort)
+	fmt.Println("... Insertion Sort ...")
+	playSmallSort(getSmallSequence(), sort.InsertionSort)
+	playLargeSort(getLargeSequence(), sort.InsertionSort)
 
 	fmt.Println()
 
-	fmt.Println("=== Merge Sort ===")
-	playSmallSort(getSmallSequence(), MergeSort)
-	playLargeSort(getLargeSequence(), MergeSort)
+	fmt.Println("... Merge Sort ...")
+	playSmallSort(getSmallSequence(), sort.MergeSort)
+	playLargeSort(getLargeSequence(), sort.MergeSort)
+
+	fmt.Println("=== FINISH ===")
+	fmt.Println()
 }
 
 func getSmallSequence() []int {

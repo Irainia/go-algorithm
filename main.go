@@ -1,7 +1,8 @@
 package main
 
-import "github.com/Irainia/go-algorithm/data"
+import "github.com/Irainia/go-algorithm/example"
 
 func main() {
-	data.Main()
+	example.PlayData()
+	example.PlaySort()
 }

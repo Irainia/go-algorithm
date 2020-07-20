@@ -26,3 +26,8 @@ func (q *Queue) Enqueue(value int) {
 	q.head = linkedList
 	q.tail = linkedList
 }
+
+// Dequeue removes and return the first value from queue
+func (q *Queue) Dequeue() int {
+	panic(EmptyQueueErrMessage)
+}

@@ -65,5 +65,32 @@ func TestQueue(t *testing.T) {
 
 			t.Error("expected: panic -- actual: not panic")
 		})
+
+		t.Run("should return the first value from queue if it's not empty", func(t *testing.T) {
+			value := 12
+			queue := data.Queue{}
+			queue.Enqueue(value)
+
+			expectedValue := value
+			expectedMessage := data.EmptyQueueErrMessage
+
+			actualValue := queue.Dequeue()
+
+			if actualValue != expectedValue {
+				t.Errorf("expected: %d -- actual: %d", expectedValue, actualValue)
+			}
+			defer func() {
+				if r := recover(); r != nil {
+					actualMessage := r.(string)
+
+					if actualMessage != expectedMessage {
+						t.Errorf("expected: %s -- actual: %s", expectedMessage, actualMessage)
+					}
+				}
+			}()
+			queue.Peek()
+
+			t.Error("expected: panic -- actual: not panic")
+		})
 	})
 }

@@ -29,5 +29,13 @@ func (q *Queue) Enqueue(value int) {
 
 // Dequeue removes and return the first value from queue
 func (q *Queue) Dequeue() int {
-	panic(EmptyQueueErrMessage)
+	if q.head == nil {
+		panic(EmptyQueueErrMessage)
+	}
+	output := q.head.Value
+	q.head = q.head.NextLinkedList
+	if q.head == nil {
+		q.tail = nil
+	}
+	return output
 }

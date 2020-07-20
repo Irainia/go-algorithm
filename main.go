@@ -1,7 +1,7 @@
 package main
 
-import "github.com/Irainia/go-algorithm/sort"
+import "github.com/Irainia/go-algorithm/data"
 
 func main() {
-	sort.Main()
+	data.Main()
 }

@@ -105,4 +105,18 @@ func TestQueue(t *testing.T) {
 			t.Error("expected: panic -- actual: not panic")
 		})
 	})
+
+	t.Run("Length", func(t *testing.T) {
+		t.Run("should return zero if queue is empty", func(t *testing.T) {
+			queue := data.Queue{}
+
+			expectedLength := 0
+
+			actualLength := queue.Length()
+
+			if actualLength != expectedLength {
+				t.Errorf("expected: %d -- actual: %d", expectedLength, actualLength)
+			}
+		})
+	})
 }

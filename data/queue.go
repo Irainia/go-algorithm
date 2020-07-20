@@ -43,3 +43,8 @@ func (q *Queue) Dequeue() int {
 	}
 	return output
 }
+
+// Length return length of the queue
+func (q *Queue) Length() int {
+	return 0
+}

@@ -6,6 +6,8 @@ const EmptyStackErrMessage = "stack is empty"
 
 // Stack is type to process stack manner
 type Stack struct {
+	length int
+
 	top *LinkedList
 }
 
@@ -19,7 +21,7 @@ func (s *Stack) Peek() int {
 
 // Length returns length of the stack
 func (s *Stack) Length() int {
-	return 0
+	return s.length
 }
 
 // Push adds value into stack
@@ -29,6 +31,7 @@ func (s *Stack) Push(value int) {
 		NextLinkedList: s.top,
 	}
 	s.top = linkedList
+	s.length++
 }
 
 // Pop returns last value and remove it from stack
@@ -38,5 +41,6 @@ func (s *Stack) Pop() int {
 	}
 	output := s.top.Value
 	s.top = s.top.NextLinkedList
+	s.length--
 	return output
 }

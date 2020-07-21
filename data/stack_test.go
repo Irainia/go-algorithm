@@ -39,6 +39,23 @@ func TestStack(t *testing.T) {
 				t.Errorf("expected: %d -- actual: %d", expectedLength, actualLength)
 			}
 		})
+
+		t.Run("should return number of values in stack even after push-pop", func(t *testing.T) {
+			stack := data.Stack{}
+			stack.Push(3)
+			stack.Push(7)
+			stack.Push(2)
+			stack.Push(8)
+			stack.Pop()
+
+			expectedLength := 3
+
+			actualLength := stack.Length()
+
+			if actualLength != expectedLength {
+				t.Errorf("expected: %d -- actual: %d", expectedLength, actualLength)
+			}
+		})
 	})
 
 	t.Run("Push", func(t *testing.T) {

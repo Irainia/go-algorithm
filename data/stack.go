@@ -33,5 +33,10 @@ func (s *Stack) Push(value int) {
 
 // Pop returns last value and remove it from stack
 func (s *Stack) Pop() int {
-	panic(EmptyStackErrMessage)
+	if s.top == nil {
+		panic(EmptyStackErrMessage)
+	}
+	output := s.top.Value
+	s.top = s.top.NextLinkedList
+	return output
 }

@@ -75,5 +75,24 @@ func TestStack(t *testing.T) {
 			stack.Pop()
 			t.Error("expected: panic -- actual: not panic")
 		})
+
+		t.Run("should return the top value and remove it from stack shown by length", func(t *testing.T) {
+			value := 12
+			stack := data.Stack{}
+			stack.Push(value)
+
+			expectedValue := value
+			expectedLength := 0
+
+			actualValue := stack.Pop()
+			actualLength := stack.Length()
+
+			if actualValue != expectedValue {
+				t.Errorf("expected: %d -- actual: %d", expectedValue, actualValue)
+			}
+			if actualLength != expectedLength {
+				t.Errorf("expected: %d -- actual: %d", expectedLength, actualLength)
+			}
+		})
 	})
 }

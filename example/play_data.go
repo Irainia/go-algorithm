@@ -26,8 +26,7 @@ func PlayData() {
 
 func playUnionFind() {
 	maximumNumber := 10
-	keyManager := &uf.DefaultKeyManager{}
-	unionFind := uf.NewUnionFind(maximumNumber, keyManager)
+	unionFind := uf.NewUnionFind(maximumNumber)
 
 	fmt.Println("... First Union ...")
 	firstPointNumber := [][]int{

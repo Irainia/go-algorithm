@@ -5,7 +5,7 @@ import (
 	"math/rand"
 	"time"
 
-	"github.com/Irainia/go-algorithm/sort"
+	"github.com/irainia/go-algorithm/sort"
 )
 
 const maxSequenceLength = 100000

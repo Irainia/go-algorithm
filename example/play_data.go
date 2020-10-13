@@ -3,8 +3,8 @@ package example
 import (
 	"fmt"
 
-	"github.com/Irainia/go-algorithm/data"
-	"github.com/Irainia/go-algorithm/uf"
+	"github.com/irainia/go-algorithm/data"
+	"github.com/irainia/go-algorithm/uf"
 )
 
 // PlayData plays all data structures

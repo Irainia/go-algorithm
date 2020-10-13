@@ -3,7 +3,7 @@ package data_test
 import (
 	"testing"
 
-	"github.com/Irainia/go-algorithm/data"
+	"github.com/irainia/go-algorithm/data"
 )
 
 func TestStack(t *testing.T) {
